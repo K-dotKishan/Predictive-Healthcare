@@ -1,0 +1,4 @@
+{ "name": "readmission-ui", "private": true, "type": "module",
+  "scripts": { "dev": "vite", "build": "vite build" },
+  "dependencies": { "d3": "^7.9.0", "vue": "^3.4.0" },
+  "devDependencies": { "@vitejs/plugin-vue": "^5.0.0", "vite": "^5.0.0" } }

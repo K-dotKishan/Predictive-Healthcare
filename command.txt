@@ -1,0 +1,70 @@
+================================================================
+  READMISSION RISK VISUALIZER — STARTUP COMMANDS
+  TechNova 2026 · LPU
+================================================================
+
+You need TWO terminals open simultaneously.
+Keep both running while using the app.
+
+----------------------------------------------------------------
+  TERMINAL 1 — BACKEND (FastAPI + scikit-learn)
+----------------------------------------------------------------
+
+Step 1: Navigate to backend folder
+  cd C:\Users\kisha\OneDrive\Desktop\readmission-visualizer\backend
+
+Step 2: Upgrade pip (run once)
+  python -m pip install --upgrade pip
+
+Step 3: Install all Python dependencies
+  python -m pip install -r requirements.txt
+
+Step 4: Start the backend server
+  python -m uvicorn main:app --reload
+
+  ✔ Backend runs at:  http://localhost:8000
+  ✔ API docs (Swagger): http://localhost:8000/docs
+  ✔ Health check:     http://localhost:8000/health
+
+----------------------------------------------------------------
+  TERMINAL 2 — FRONTEND (Vue 3 + Vite)
+----------------------------------------------------------------
+
+Step 1: Navigate to frontend folder
+  cd C:\Users\kisha\OneDrive\Desktop\readmission-visualizer\frontend
+
+Step 2: Install Node dependencies (run once)
+  npm install
+
+Step 3: Start the frontend dev server
+  npm run dev
+
+  ✔ Frontend runs at: http://localhost:5173
+
+----------------------------------------------------------------
+  NOTES
+----------------------------------------------------------------
+
+- Start the BACKEND first, then the frontend.
+- Both terminals must stay open while using the app.
+- The frontend proxies all /api/* calls to http://localhost:8000
+  (configured in vite.config.js — no CORS issues in dev mode).
+- If 'uvicorn' is not recognized, always use: python -m uvicorn
+- If npm is not found, install Node.js from https://nodejs.org
+
+----------------------------------------------------------------
+  API ENDPOINTS (for reference)
+----------------------------------------------------------------
+
+  GET  /api/features     — slider metadata (label, min, max, default)
+  POST /api/predict      — predict readmission risk for a patient
+  GET  /api/cohort?n=120 — random synthetic cohort (max n=300)
+  GET  /health           — server health check
+
+----------------------------------------------------------------
+  TO STOP SERVERS
+----------------------------------------------------------------
+
+  Press Ctrl+C in each terminal to stop the respective server.
+
+================================================================
